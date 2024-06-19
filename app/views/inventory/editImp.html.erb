@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/inventory/home" >
+        <button style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);">
+            Back
+        </button>
+    </a>
+    <br><br>
+    <form action="/inventory/updateImp" method="post"  style="background-color: rgba(42, 81, 83, 0.541); padding: 20px;
+        padding-top: 14%;
+        padding-bottom: 14%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        
+        ">
+            
+        <center>
+            <input type="hidden" name="id" value="<%= @edit.id %>">
+
+            <label for="med" >Medicine Name</label>
+            <select name="medname" id="med" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);" required>
+                
+                <option value="<%= @edit.medicine_name %>" style="color: rgb(255, 159, 111);" selected><p><%= @edit.medicine_name %></p></option>
+                
+                <% @med.each do |row| %>
+                    <option value="<%= row.medicine_name %>"><%= row.medicine_name %></option>
+                <% end %>
+            </select><br><br>
+
+            <label for="comp">Company Name</label>
+            <select name="comp" id="comp" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);" required>
+                
+                <option value="<%= @edit.company_name %>" style="color: rgb(255, 159, 111);" selected><p><%= @edit.company_name %></p></option>
+                
+                <% @sup.each do |row| %>
+                    <option value="<%= row.company_name %>"><%= row.company_name %></option>
+                <% end %>
+            </select><br><br>
+
+            <label for="plate">Plate Number</label>
+            <input type="text" name="plate" id="plate" value="<%= @edit.delivery_truck_platenumber %>" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);" required><br><br>
+
+            <label for="area">Storage Area</label>
+            <select name="area" id="area" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);" required>
+                
+                <option value="<%= @edit.storage_area %>" style="color: rgb(255, 159, 111);" selected><p><%= @edit.storage_area %></p></option>
+                
+                <% @storage.each do |row| %>
+                    <option value="<%= row.storage_area %>"><%= row.storage_area %></option>
+                <% end %>
+            </select><br><br>
+
+            <label for="emp">Employee Name</label>
+            <select name="emp" id="emp" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);" required>
+                
+                <option value="<%= @edit.employee_name %>" style="color: rgb(255, 159, 111);" selected><p><%= @edit.employee_name %></p></option>
+                
+                <% @emp.each do |row| %>
+                    <option value="<%= row.employee_name %>"><%= row.employee_name %></option>
+                <% end %>
+            </select><br><br>
+
+            <label for="exdate">Expriration Date</label>
+            <input type="date" name="exprdate" id="exdate" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);" value="<%= @edit.expiration_date %>" required>
+            <br><br>
+
+            <label for="tprod">How Many Products</label>
+            <input type="number" name="tproducts" id="tprod" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);" value="<%= @edit.total_products %>" required >
+            <br><br>
+
+            <button type="submit" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);">
+                Submit
+            </button> 
+        </center>
+        </form>
+</body>
+</html>

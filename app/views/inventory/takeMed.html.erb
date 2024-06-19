@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/inventory/home" >
+        <button style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);">
+            Back
+        </button>
+    </a>
+    <br><br>
+    <form action="/inventory/takeMedCommit" method="post"  style="background-color: rgba(42, 81, 83, 0.541); padding: 20px;
+        padding-top: 14%;
+        padding-bottom: 14%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        
+        ">
+            
+        <center>
+            <input type="hidden" name="id" value="<%= @take.id %>">
+            
+            <label for="amount">Enter Amount</label>
+            <input type="number" name="amount" id="amount" min="1" placeholder="Enter Amount To Take " required>
+
+            <input type="hidden" name="area" value="<%= @take.storage_area %>">
+            
+            <button type="submit" style="background-color: rgb(75, 75, 75); color: rgb(108, 226, 255);">
+                Submit
+            </button> 
+        </center>
+        </form>
+</body>
+</html>
